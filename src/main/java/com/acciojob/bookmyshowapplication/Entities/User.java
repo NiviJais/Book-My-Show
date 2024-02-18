@@ -10,25 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "theaters")
+@Table(name = "user")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Theater {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer theaterId;
+    private Integer userId;
 
     private String name;
 
-    private String address;
+    private String emailId;
 
-    private Integer noOfScreens;
-
-    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
-    private List<Show> showList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
-    private List<TheaterSeat> theaterSeatList = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Ticket> ticketList = new ArrayList<>();
 }

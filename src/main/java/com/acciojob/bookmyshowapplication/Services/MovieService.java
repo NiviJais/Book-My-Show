@@ -25,4 +25,9 @@ public class MovieService {
         movie = movieRepository.save(movie);
         return "The movie has been saved with the movieId"+movie.getMovieId();
     }
+
+    public Movie getMovie(Integer movieId){
+        Movie movie = movieRepository.findById(movieId).get();
+        return movie;
+    }
  }
